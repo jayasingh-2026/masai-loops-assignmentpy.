@@ -1,0 +1,5 @@
+# Task 1: Number Printer
+n= int(input("Enter N: "))
+
+for i in range(n + 1):
+    print(i)
