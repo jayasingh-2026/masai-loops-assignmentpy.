@@ -1,0 +1,62 @@
+# Greeting Function
+def greeting(name):
+    return f"Hello, {name}!"
+
+result1 = greeting("Sanidhya")
+print(result1)
+
+
+
+# Add Two Numbers
+def add_numbers(num1, num2):
+    return num1 + num2
+
+result2 = add_numbers(10, 5)
+print("Sum is:", result2)
+
+
+
+# Even or Odd Checker
+def check_even_or_odd(number):
+    if number % 2 == 0:
+       return "Number is Even"
+    else:
+        return "Number is Odd"
+
+result3 = check_even_or_odd(10)
+print(result3)
+
+
+
+# Modular Student Evaluation System
+def greet_student(name):
+    return f"Hello, {name}"
+
+
+def calculate_scores(scores):
+    num_subjects = len(scores)
+    average = sum(scores) / num_subjects if num_subjects > 0 else 0
+    return num_subjects, average
+
+
+def determine_result(average):
+    return "Pass" if average >= 50 else "Fail"
+
+
+def main():
+    name = input("Enter student name: ")
+    scores_input = input("Enter scores separated by commas: ")
+    scores = [float(score.strip()) for score in scores_input.split(",")]
+
+    greeting = greet_student(name)
+    num_subjects, average = calculate_scores(scores)
+    result = determine_result(average)
+
+    print(greeting)
+    print(f"Subjects: {num_subjects}")
+    print(f"Average Score: {average}")
+    print(f"Result: {result}")
+
+
+if __name__ == "__main__":
+    main()
