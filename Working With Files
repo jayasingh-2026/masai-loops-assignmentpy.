@@ -1,0 +1,18 @@
+# file_data_logging.py
+
+def main():
+    numbers = [10, 20, 30, 40, 50, 60, 70, 80]  # Sample numbers
+
+    count = len(numbers)
+    total_sum = sum(numbers)
+    average = total_sum / count if count > 0 else 0
+
+    with open("results.log", "a") as log:
+        log.write("File opened successfully\n")
+        log.write(f"Read {count} numbers\n")
+        log.write(f"Sum: {total_sum}\n")
+        log.write(f"Average: {average}\n")
+        log.write("Processing completed\n")
+
+if __name__ == "__main__":
+    main()
