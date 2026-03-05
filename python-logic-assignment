@@ -1,0 +1,33 @@
+import pandas as pd
+
+# Create sample dataset
+data = {
+    "Name": ["Amit", "Sara", "John", "Meera", "Ravi", "Ananya"],
+    "Age": [20, 22, 19, 21, 23, 20],
+    "Score": [85, 78, 92, 88, 76, 95],
+    "Label": ["Pass", "Pass", "Pass", "Pass", "Pass", "Pass"]
+}
+
+df = pd.DataFrame(data)
+
+# Display first 5 rows
+print("First 5 rows:")
+print(df.head())
+
+# Display dataset info
+print("\nDataset Info:")
+print(df.info())
+
+# Column selection (single)
+print("\nAge Column:")
+print(df["Age"])
+
+# Column selection (multiple)
+print("\nAge and Score Columns:")
+print(df[["Age", "Score"]])
+
+# Row filtering (Score > 80)
+filtered_df = df[df["Score"] > 80]
+
+print("\nFiltered rows (Score > 80):")
+print(filtered_df)
