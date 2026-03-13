@@ -1,0 +1,103 @@
+import pandas as pd
+
+# -------------------------------
+# Create a Sample Dataset
+# -------------------------------
+
+data = {
+    "Name": ["Alice", "Bob", "Charlie", "David", "Emma", "Frank"],
+    "Score": [95, 92, 88, 76, 90, 82],
+    "Passed": [True, True, True, False, True, True],
+    "Category": ["A", "A", "B", "B", "A", "B"]
+}
+
+df = pd.DataFrame(data)
+
+print("Original Dataset:")
+print(df)
+print("\n")
+
+
+# -------------------------------
+# Select a Single Column
+# -------------------------------
+
+print("Single Column (Name):")
+print(df["Name"])
+print("\n")
+
+
+# -------------------------------
+# Select Multiple Columns
+# -------------------------------
+
+selected_columns = df[["Name", "Score"]]
+
+print("Multiple Columns (Name and Score):")
+print(selected_columns)
+print("\n")
+
+
+# -------------------------------
+# Use iloc to retrieve first 3 rows
+# -------------------------------
+
+print("First Three Rows using iloc:")
+print(df.iloc[0:3])
+print("\n")
+
+
+# -------------------------------
+# Use loc after setting an index
+# -------------------------------
+
+df_indexed = df.set_index("Name")
+
+print("Access data using loc (for Alice):")
+print(df_indexed.loc["Alice"])
+print("\n")
+
+
+# -------------------------------
+# Filter rows where Score > 85
+# -------------------------------
+
+high_scores = df[df["Score"] > 85]
+
+print("Students with Score > 85:")
+print(high_scores)
+print("\n")
+
+
+# -------------------------------
+# Filter rows where Score > 85 AND Passed is True
+# -------------------------------
+
+high_passed = df[(df["Score"] > 85) & (df["Passed"] == True)]
+
+print("Students with Score > 85 AND Passed = True:")
+print(high_passed)
+print("\n")
+
+
+# -------------------------------
+# Sort the filtered result
+# -------------------------------
+
+sorted_results = high_passed.sort_values(by="Score", ascending=False)
+
+print("High-performing students (sorted by Score):")
+print(sorted_results[["Name", "Score"]])
+print("\n")
+
+
+# -------------------------------
+# Chained filtering + sorting
+# -------------------------------
+
+print("Chained filtering and sorting result:")
+
+chained_result = df[(df["Score"] > 85) & (df["Passed"] == True)] \
+    .sort_values(by="Score", ascending=False)
+
+print(chained_result)
